@@ -72,46 +72,38 @@ export default function Home() {
     }
   }
 
-  const handleHeroCTA = async () => {
+  const handleHeroCTA = () => {
+    scrollToSection('waitlist')
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'hero_cta_click')
     }
-    try {
-      await fetch('/api/pricing-event', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          eventType: 'start_free_7_days',
-          source: 'hero_primary_cta',
-        }),
-      })
-    } catch (error) {
-      console.error('Error tracking event:', error)
-    }
-    scrollToSection('waitlist')
+    void fetch('/api/pricing-event', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        eventType: 'start_free_7_days',
+        source: 'hero_primary_cta',
+      }),
+    }).catch((error) => console.error('Error tracking event:', error))
   }
 
   const handleSeeHow = () => {
     scrollToSection('chat-demo')
   }
 
-  const handlePricingCTA = async () => {
+  const handlePricingCTA = () => {
+    scrollToSection('waitlist')
     if (typeof window !== 'undefined' && (window as any).gtag) {
       (window as any).gtag('event', 'pro_pricing_79_click')
     }
-    try {
-      await fetch('/api/pricing-event', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          eventType: 'pro_79_month',
-          source: 'pricing_pro_cta',
-        }),
-      })
-    } catch (error) {
-      console.error('Error tracking event:', error)
-    }
-    scrollToSection('waitlist')
+    void fetch('/api/pricing-event', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        eventType: 'pro_79_month',
+        source: 'pricing_pro_cta',
+      }),
+    }).catch((error) => console.error('Error tracking event:', error))
   }
 
   const handleNavbarCTA = () => {
