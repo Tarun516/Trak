@@ -11,9 +11,22 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Trak - Auto-Track Your UPI Expenses',
-  description: 'Trak automatically reads your GPay, PhonePe, and Paytm SMS. Zero manual entry. AI insights built for India.',
-  generator: 'v0.app',
+  title: 'Trak — Track expenses by just talking',
+  description:
+    'For people who hate tracking expenses. Just type or speak — Trak logs everything, categorizes it, and shows where your money goes.',
+  openGraph: {
+    title: 'Trak — Track expenses by just talking',
+    description:
+      'For people who hate tracking expenses. Just type or speak — Trak logs everything and shows where your money goes.',
+    siteName: 'Trak',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Trak — Track expenses by just talking',
+    description:
+      'No forms. No friction. Just say it — Trak handles the rest.',
+  },
   icons: {
     icon: [
       {
